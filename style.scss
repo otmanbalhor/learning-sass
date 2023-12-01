@@ -1,0 +1,40 @@
+body {
+    background-color: white;
+    font-family:  Calibri;
+    display: flex;
+}
+
+header,body,footer{
+    color: #4e4e5d;
+}
+
+#titre1{
+    font-weight: lighter;
+}
+
+header
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header p
+{
+    width: 450px;
+    height: auto;
+    display: inline-block;
+}
+
+#haut,#droite,#bas,#gauche{
+    border: 1px rgb(166, 166, 166);
+    
+    box-shadow:3px 8px 3px rgba(7, 6, 15, 0.1)
+}
+
+#haut
+{
+    justify-content: center;
+    align-items: center;
+    border-top: 4px solid red;
+}
