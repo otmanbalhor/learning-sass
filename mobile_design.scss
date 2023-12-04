@@ -1,0 +1,102 @@
+$primary: #f0f0f0;
+$secondary:#fafafa;
+$top:#e0595b;
+$bottom:#ecb56f;
+$right:#5d9ce0;
+$left:#55ccca;
+$soustitre:#b8b7bb;
+$border: 4px;
+$taille:375px;
+$size:15px;
+$margpad:40px;
+
+
+    
+    body {
+      background-color: lightblue;
+    }
+  
+
+@font-face {
+    font-family:'Poppins-Light';
+    src: url('Poppins-Light.ttf');
+}
+
+body {
+    background-color:$primary ;
+    font: {
+        family: 'Poppins-Light';
+        size: $size;
+    }
+    color: #4e4e5d;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: $taille;
+    height: 1000px ;
+    align-content: center;
+    gap: 20px 20px;
+}
+
+#titre1 {
+    font-weight: lighter;
+    
+}
+
+header {
+
+    height: $margpad+280px;
+    text-align: center;
+    
+    p
+    {
+        width: $taille;
+        color: $soustitre;
+    }
+
+}
+
+#itembas{
+    background-color: $secondary;
+    width: $margpad+180px;
+    height: $margpad+160px;
+    box-shadow: 0px $border $border $border rgba(7, 6, 15, 0.15);   
+    border: {
+            radius: $border;
+            top: $border solid $bottom;
+            }
+
+    padding: {
+            left: $margpad; 
+            right: $margpad;
+            }
+
+    &:hover{
+        background-color: darken($secondary, 5);
+    }
+    margin-left: 12px;
+    
+}
+
+#itemdroite{
+    @extend #itembas ;
+    border-top: $border solid $right;
+}
+
+#itemgauche{
+
+    @extend #itemdroite ;
+    border-top: $border solid $left;
+}
+
+#itemhaut{
+    @extend #itemgauche ;
+    border-top: $border solid $top;
+}
+
+svg
+{
+    float: right;
+}
