@@ -1,6 +1,5 @@
 @import 'mixins';
 
-
 $primary: #f0f0f0;
 $secondary:#fafafa;
 $top:#e0595b;
@@ -9,8 +8,6 @@ $right:#5d9ce0;
 $left:#55ccca;
 $soustitre:#b8b7bb;
 $border: 4px;
-$taille:400px;
-$size:15px;
 $margpad:40px;
 
 @font-face {
@@ -22,7 +19,7 @@ body {
     background-color:$primary ;
     font: {
         family: 'Poppins-Light';
-        size: $size;
+        size: 15px;
     }
     color: #4e4e5d;
 }
@@ -30,8 +27,7 @@ body {
 .container {
     display: flex;
     flex-wrap: wrap;
-    width: $taille+1070px;
-    height: 0px ;
+    height: 400px;
     justify-content: center;
     align-content: center; 
 }
@@ -43,60 +39,60 @@ body {
 
 header {
 
-    height: $margpad+280px;
+    height: 265px;
     display: flex;
     text-align: center;
     justify-content: center;
     
     p
     {
-        width: $taille+130px;
+        width: 530px;
         color: $soustitre;
     }
 
 }
 
-#itembas{
-    background-color: $secondary;
-    width: $margpad+230px;
-    height: $margpad+190px;
-    box-shadow: 0px $border $border $border rgba(7, 6, 15, 0.15);   
+@mixin card_rules($border-color)
+{
+    background-color: #fafafa;
+    width: 270px;
+    height: 230px;
+    box-shadow: 0px 4px 4px 4px rgba(7, 6, 15, 0.15);   
+    border-top: $border solid $border-color;
     border: {
-            radius: $border;
-            top: $border solid $bottom;
+            radius: 4px;
+            top: 4px solid 4px;
             }
 
     padding: {
-            left: $margpad; 
-            right: $margpad;
+            left: 40px; 
+            right: 40px;
             }
 
     &:hover{
-        background-color: darken($secondary, 5);
+        background-color: darken(#fafafa, 5);
     }
-    
-    margin-left: $margpad+10px;
+    margin-left: 40px;
 }
 
-#itemdroite{
-    @extend #itembas ;
-    border-top: $border solid $right;
-    margin: {
-        top: $taille+100px;
-        left: $margpad;
-    }
+.itembas{
+    @include card_rules($bottom);
+} 
+
+.itemdroite{
+    @include card_rules($right);
+    margin-top: 50px;
+
 }
 
-#itemgauche{
-
-    @extend #itemdroite ;
-    border-top: $border solid $left;
+.itemgauche{
+    @include card_rules($left);
+    margin-top: 50px;
 }
 
-#itemhaut{
-    @extend #itemgauche ;
-    border-top: $border solid $top;
-    margin-top: $taille+20px;
+.itemhaut{
+    @include card_rules($top);
+   margin-bottom: 20px;
 }
 
 svg
@@ -105,5 +101,5 @@ svg
 }
 
 @media only screen and (max-width: 375px) {
-    @import 'mobile_design';
+    @import 'mobile_design.scss';
 }
